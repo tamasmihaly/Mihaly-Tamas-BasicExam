@@ -22,7 +22,16 @@ function successAjax(xhttp) {
       A userDatas NEM GLOBÁLIS változó, ne is tegyétek ki globálisra. Azaz TILOS!
       Ha valemelyik függvényeteknek kell, akkor paraméterként adjátok át.
     */
-    funKaraterkiaratas(userDatas)
+    funKaraterkiaratas(userDatas);
+
+    // funEventadd();
+
+    document.querySelector("#searchButton").addEventListener("click", fun1)
+
+    function fun1() {
+        var parameter = document.querySelector("#search").value
+        adatmegjelenit(userDatas, parameter);
+    }
 
 }
 
@@ -47,25 +56,52 @@ function funKaraterkiaratas(data) {
         }
     });
     //console.log(jsonData.length);
-    console.log(i);
 
-    var bigdiv = `<div class="inner-div">`;
+
+    var bigdiv = ``;
     for (var i = 0; i < jsonData.length; i++) {
         if (jsonData[i].dead == 0) {
             // jsonData[i].name
-            console.log(jsonData[i].name);
-            console.log(jsonData[i].portrait);
+            //console.log(jsonData[i].name);
+            //console.log(jsonData[i].portrait);
             bigdiv += `<div class="char-div"><img class="char-pic char-${jsonData[i].id}" src="${jsonData[i].portrait}" alt="${jsonData[i].portrait}"> <br> <a class="atag link${jsonData[i].id}" >${jsonData[i].name}</a>
     </div>`
 
         }
-        bigdiv += `</div>`
+
         document.querySelector(".ideberak").innerHTML = bigdiv;
     };
 
-    function adatmegjelenit(data) {
-
-    };
 
 
+};
+
+/*
+function funEventadd(berakTag) {
+    var berakTag = document.querySelectorAll(".atag");
+    for (var i = 0; i < berakTag.length; i++) {
+        berakTag[i].onclick = "valami";
+
+        console.log(berakTag[i]);
+
+    }
+    berakTag.fo
+
+};
+*/
+function adatmegjelenit(data, searchParameter) {
+    var jsonData = data[2].data
+    console.log(1);
+    var characterdiv = ``;
+    for (var i = 0; i < jsonData.length; i++) {
+        if (jsonData[i].dead == 0 && jsonData[i].name.toLowerCase() == searchParameter.toLowerCase()) {
+            characterdiv += `<img src="${jsonData[i].picture}" alt="${jsonData[i].picture}"> <p>${jsonData[i].name}</p> <p>${jsonData[i].bio}</p>`
+
+            break;
+        } else {
+            characterdiv = ""
+        }
+    }
+    console.log(characterdiv);
+    document.querySelector(".character-data").innerHTML = characterdiv
 };
