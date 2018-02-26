@@ -22,10 +22,50 @@ function successAjax(xhttp) {
       A userDatas NEM GLOBÁLIS változó, ne is tegyétek ki globálisra. Azaz TILOS!
       Ha valemelyik függvényeteknek kell, akkor paraméterként adjátok át.
     */
+    funKaraterkiaratas(userDatas)
+
 }
 
+
+
 // Írd be a json fileod nevét/útvonalát úgy, ahogy nálad van
-getData('/json/aJsonFileodNeve.json', successAjax);
+getData('/json/characters.json', successAjax);
 
 // Live servert használd mindig!!!!!
 /* IDE ÍRD A FÜGGVÉNYEKET!!!!!! NE EBBE AZ EGY SORBA HANEM INNEN LEFELÉ! */
+
+function funKaraterkiaratas(data) {
+
+    var jsonData = data[2].data
+    jsonData.sort(function (a, b) {
+        if (a.name > b.name) {
+            return 1
+        } else if (a.name < b.name) {
+            return -1
+        } else {
+            return 0
+        }
+    });
+    //console.log(jsonData.length);
+    console.log(i);
+
+    var bigdiv = `<div class="inner-div">`;
+    for (var i = 0; i < jsonData.length; i++) {
+        if (jsonData[i].dead == 0) {
+            // jsonData[i].name
+            console.log(jsonData[i].name);
+            console.log(jsonData[i].portrait);
+            bigdiv += `<div class="char-div"><img class="char-pic char-${jsonData[i].id}" src="${jsonData[i].portrait}" alt="${jsonData[i].portrait}"> <br> <a class="atag link${jsonData[i].id}" >${jsonData[i].name}</a>
+    </div>`
+
+        }
+        bigdiv += `</div>`
+        document.querySelector(".ideberak").innerHTML = bigdiv;
+    };
+
+    function adatmegjelenit(data) {
+
+    };
+
+
+};

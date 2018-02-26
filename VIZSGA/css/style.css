@@ -1,0 +1,65 @@
+body,
+html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Bellefair', serif;
+}
+
+.bg-picture {
+    background-image: url("/assets/site/mapblue.jpg");
+    height: 100%;
+    background-size: cover;
+    position: relative;
+    background-position: center;
+}
+
+#rightmenu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    /*padding-top: 112px;
+    padding-bottom: 0;*/
+    height: 100%;
+    width: 25%;
+    background-color: grey;
+}
+
+#search {
+    font-size: 16px;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    padding: 10px 5px 10px 30px;
+}
+
+#searchButton {
+    font-size: 30px;
+    color: white;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    bottom: 30px;
+    right: 290px;
+    border: 1px solid white;
+    z-index: 3;
+    text-align: center;
+    vertical-align: middle;
+}
+
+div.ideberak {
+    width: 75%;
+    padding: 30px;
+}
+
+div.char-div {
+    float: left;
+}
+
+inner.div {
+    width: 80%
+}
+
+;
+a.atag {
+    position: fixed;
+}
